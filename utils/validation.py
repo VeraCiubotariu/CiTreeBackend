@@ -1,3 +1,4 @@
+from domain.tree import Tree
 from domain.user import User
 from utils.custom_exceptions import ValidationException
 
@@ -17,3 +18,13 @@ def validate_user(user: User):
 
     if user.lastName.replace(' ', '') == '' or ',' in user.lastName:
         raise ValidationException('Invalid last name!')
+
+def validate_tree(tree: Tree):
+    if tree.user_id == '':
+        raise ValidationException('Invalid user id!')
+
+    if tree.id == '':
+        raise ValidationException('Invalid tree id!')
+
+    if tree.name == '':
+        raise ValidationException('Invalid tree name!')
